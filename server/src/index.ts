@@ -25,9 +25,14 @@ app.get("/api/health", (req, res) => {
 // 错误处理
 app.use(errorHandler);
 
-app.listen(config.port, () => {
-  console.log(`Server running on http://localhost:${config.port}`);
-  console.log(`Environment: ${config.nodeEnv}`);
-  console.log(`DeepSeek API: ${config.deepseek.apiKey ? "Configured" : "NOT configured"}`);
-  console.log(`Database: ${config.database.url}`);
-});
+// 仅在非 Vercel 环境监听端口（Vercel 自动管理）
+if (process.env.VERCEL !== "1") {
+  app.listen(config.port, () => {
+    console.log(`Server running on http://localhost:${config.port}`);
+    console.log(`Environment: ${config.nodeEnv}`);
+    console.log(`DeepSeek API: ${config.deepseek.apiKey ? "Configured" : "NOT configured"}`);
+    console.log(`Database: ${config.database.url}`);
+  });
+}
+
+export default app;
