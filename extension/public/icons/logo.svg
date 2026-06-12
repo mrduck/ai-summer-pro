@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="icon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#e0e7ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <g fill="none" stroke="url(#icon)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 大脑/文档图标 -->
+    <path d="M44 38 C44 38 34 38 34 48 C34 58 44 58 44 58"/>
+    <path d="M84 38 C84 38 94 38 94 48 C94 58 84 58 84 58"/>
+    <path d="M38 52 C38 52 38 72 64 72 C90 72 90 52 90 52"/>
+    <path d="M50 48 C50 48 50 36 64 36 C78 36 78 48 78 48"/>
+    <path d="M54 60 L54 76"/>
+    <path d="M64 58 L64 78"/>
+    <path d="M74 60 L74 76"/>
+  </g>
+  <!-- AI 文字 -->
+  <text x="64" y="100" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="2">AI</text>
+</svg>

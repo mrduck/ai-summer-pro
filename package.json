@@ -1,0 +1,18 @@
+{
+  "name": "ai-summarize",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AI 网页总结助手 — Chrome 插件 + 后端服务",
+  "workspaces": [
+    "server",
+    "extension"
+  ],
+  "scripts": {
+    "dev:server": "npm -w server run dev",
+    "dev:extension": "npm -w extension run dev",
+    "build:server": "npm -w server run build",
+    "build:extension": "npm -w extension run build",
+    "db:migrate": "npm -w server run db:migrate",
+    "db:seed": "npm -w server run db:seed"
+  }
+}

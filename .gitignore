@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+# tsc compiled output in source directories
+extension/src/**/*.js
