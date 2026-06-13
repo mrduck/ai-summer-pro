@@ -7,11 +7,50 @@ interface ParagraphRef {
   index: number;
 }
 
-function getSystemPrompt(mode: SummaryMode, outputLang: OutputLang) {
+/**
+ * 检测文本语言：统计 CJK 字符占比
+ * 如果 CJK 字符 > 30%，判定为中文；否则为英文
+ */
+function detectLanguage(text: string): "zh" | "en" {
+  let cjkCount = 0;
+  let totalCount = 0;
+
+  for (const char of text) {
+    const code = char.codePointAt(0) || 0;
+    // CJK 统一表意文字范围：U+4E00 - U+9FFF
+    // 以及中文标点、日文假名等
+    if (
+      (code >= 0x4e00 && code <= 0x9fff) || // CJK Unified
+      (code >= 0x3400 && code <= 0x4dbf) || // CJK Extension A
+      (code >= 0x3000 && code <= 0x303f) || // CJK 标点
+      (code >= 0xff00 && code <= 0xffef) || // 全角字符
+      (code >= 0x3040 && code <= 0x309f) || // 平假名
+      (code >= 0x30a0 && code <= 0x30ff)    // 片假名
+    ) {
+      cjkCount++;
+    }
+    // 只统计有意义字符（字母、中文字符、数字）
+    if ((code >= 0x20 && code <= 0x7e) || (code >= 0x4e00)) {
+      totalCount++;
+    }
+  }
+
+  const ratio = totalCount > 0 ? cjkCount / totalCount : 0;
+  console.log(`[detectLanguage] CJK ratio: ${(ratio * 100).toFixed(1)}%, total chars: ${totalCount}`);
+  return ratio > 0.3 ? "zh" : "en";
+}
+
+function getSystemPrompt(mode: SummaryMode, outputLang: OutputLang, sourceContent: string) {
+  // 自动检测：根据原文字符比例判断语言
+  let effectiveLang = outputLang;
+  if (outputLang === "auto") {
+    effectiveLang = detectLanguage(sourceContent);
+  }
+
   const langInstruction =
-    outputLang === "zh"
+    effectiveLang === "zh"
       ? "请使用中文输出。"
-      : outputLang === "en"
+      : effectiveLang === "en"
         ? "Please output in English."
         : "日本語で出力してください。";
 
@@ -123,7 +162,7 @@ export async function* streamSummary(
   }
 
   const { numbered, paragraphs } = buildNumberedContent(content);
-  const systemPrompt = getSystemPrompt(mode, outputLang);
+  const systemPrompt = getSystemPrompt(mode, outputLang, numbered);
 
   console.log(`[AI] 发送 ${paragraphs.length} 个段落，共 ${numbered.length} 字符`);
 

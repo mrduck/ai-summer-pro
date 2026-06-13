@@ -19,7 +19,7 @@ router.use(rateLimit(1000, 1));
 router.post("/", async (req: Request, res: Response) => {
   try {
     const deviceId = (req as any).deviceId as string;
-    const { url, title, content, mode = "bullet", outputLang = "zh" } = req.body;
+    const { url, title, content, mode = "bullet", outputLang = "auto" } = req.body;
 
     // 参数校验
     if (!content || content.length < 100) {

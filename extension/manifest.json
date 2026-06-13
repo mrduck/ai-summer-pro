@@ -3,7 +3,6 @@
   "name": "AI 网页总结助手",
   "version": "1.0.0",
   "description": "一键 AI 总结网页内容，支持多种输出模式和历史记录",
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsZSxEJtmvrl0RVmx8G035/FFtvG8cCD5QCaylwgjbdANR4UTuCVzJ7FYZcDwyIH4kLbIa/8mLu3ScxEnjKUd7dX2vsshRbjhAf/AG32tlK/v+SWdFB86f8B2TV6psgQ3pBF3QC1eFqdlKzK2FRnMzBPsJNRxDX1/7XImNTmUDfkd+hkHnd/8h4LbiYTLyCO7DbflqlUUl5X4nQTbXqReMfZWPMyO+ZcihAproKI8GK/nSKJegfgux28+g9VHqDGPSCN4csZOk98fH08sYBIaZtvMB4QTTDH3SCYTcoDTawHp50HgJsaEjSlJ7E+kwKtX1Ex2XKqzfkZt4HC4LuLWPwIDAQAB",
   "permissions": ["sidePanel", "contextMenus", "storage", "activeTab", "scripting", "tabs"],
   "host_permissions": ["http://localhost:3000/*", "<all_urls>"],
   "action": {

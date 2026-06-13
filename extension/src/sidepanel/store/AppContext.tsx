@@ -3,7 +3,7 @@ import React, { createContext, useContext, useReducer, ReactNode } from "react";
 // ============ 状态类型 ============
 
 export type SummaryMode = "brief" | "paragraph" | "bullet";
-export type OutputLang = "zh" | "en" | "ja";
+export type OutputLang = "zh" | "en" | "ja" | "auto";
 
 export interface HistoryItem {
   id: number;
@@ -136,7 +136,7 @@ const initialState: AppState = {
   },
   settings: {
     defaultMode: "bullet",
-    defaultOutputLang: "zh",
+    defaultOutputLang: "auto",
   },
 };
 

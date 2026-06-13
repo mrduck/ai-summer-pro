@@ -32,4 +32,4 @@ export interface QuotaInfo {
 }
 
 export type SummaryMode = "brief" | "paragraph" | "bullet";
-export type OutputLang = "zh" | "en" | "ja";
+export type OutputLang = "zh" | "en" | "ja" | "auto";

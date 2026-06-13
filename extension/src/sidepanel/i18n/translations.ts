@@ -46,6 +46,7 @@ export const translations = {
     langZH: "中文",
     langEN: "English",
     langJA: "日本語",
+    langAuto: "自动检测",
     uiLanguage: "界面语言",
 
     // HistoryPage
@@ -109,6 +110,7 @@ export const translations = {
     langZH: "中文",
     langEN: "English",
     langJA: "日本語",
+    langAuto: "Auto Detect",
     uiLanguage: "UI Language",
 
     // HistoryPage
@@ -172,6 +174,7 @@ export const translations = {
     langZH: "中文",
     langEN: "English",
     langJA: "日本語",
+    langAuto: "自動検出",
     uiLanguage: "UI言語",
 
     // HistoryPage

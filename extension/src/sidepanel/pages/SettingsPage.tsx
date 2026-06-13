@@ -88,6 +88,7 @@ export default function SettingsPage() {
               <option value="zh">{t.langZH}</option>
               <option value="en">{t.langEN}</option>
               <option value="ja">{t.langJA}</option>
+              <option value="auto">{t.langAuto}</option>
             </select>
           </div>
 
